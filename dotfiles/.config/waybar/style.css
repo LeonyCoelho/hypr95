@@ -1,0 +1,208 @@
+/* --- Estilo Chicago95 para Waybar (Versão Compacta) --- */
+
+* {
+    font-family: "Microsoft Sans Serif", Terminus, sans-serif;
+    font-size: 9pt; /* MUDANÇA: Fonte um pouco menor */
+    border-radius: 0;
+    font-weight: bold;
+  
+}
+
+window#waybar {
+    background-color: #c0c0c0;
+    color: #000000;
+    border: 2px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+}
+
+/* Estilo padrão para todos os módulos */
+#workspaces,
+#window,
+#cpu,
+#memory,
+#clock,
+#battery,
+#tray,
+#network,
+#pulseaudio,
+#custom-user,
+#mpris,
+#temperature,
+#custom-playpause,
+#custom-next,
+#custom-prev,
+#custom-start,
+#custom-search,
+#bluetooth
+{
+    background-color: #c0c0c0;
+    padding: 0 6px; /* MUDANÇA: Espaçamento interno menor */
+    margin: 2px 0px;
+    border: 2px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+}
+
+#custom-start {
+    background-image: url('/home/krolik/.config/waybar/find.svg');           
+    background-position: 5px;                                             
+    background-repeat: no-repeat;                                            
+    background-size: contain;
+  }
+
+#custom-search {
+    background-image: url('/home/krolik/.config/waybar/find-file.svg');           
+    background-position: 5px;                                             
+    background-repeat: no-repeat;                                            
+    background-size: contain;
+  }
+
+#cpu {
+    background-image: url('/home/krolik/.config/waybar/processor.svg');           
+    background-position: 5px;                                             
+    background-repeat: no-repeat;                                            
+    background-size: contain;
+  }
+
+#memory {
+    background-image: url('/home/krolik/.config/waybar/ram.svg');           
+    background-position: 5px;                                             
+    background-repeat: no-repeat;                                            
+    background-size: contain;
+  }
+
+#window {
+    background-image: url('/home/krolik/.config/waybar/window.svg');           
+    background-position: 5px;                                             
+    background-repeat: no-repeat;                                            
+    background-size: contain;
+    font-weight: bold;
+  }
+
+#bluetooth {
+    background-image: url('/home/krolik/.config/waybar/bluetooth.svg');           
+    background-position: 5px;                                             
+    background-repeat: no-repeat;                                            
+    background-size: contain;
+    font-weight: bold;
+    padding-left: 25px;
+  }
+
+#pulseaudio {
+    padding-left: 20px; /* Espaço para o ícone */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 5px;
+}
+
+/* Estilo que SÓ é aplicado quando o som está mudo */
+#pulseaudio.muted {
+    background-image: url("/home/krolik/.config/waybar/volume-muted.svg");
+}
+
+#pulseaudio.low {
+  background-image: url("/home/krolik/.config/waybar/volume-low.svg")
+}
+#pulseaudio.medium {
+  background-image: url("/home/krolik/.config/waybar/volume-medium.svg")
+}
+#pulseaudio.high {
+  background-image: url("/home/krolik/.config/waybar/volume-high.svg")
+}
+
+/* Estilo base para o módulo de bateria (agora #battery) */
+#battery {
+    padding-left: 30px;
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-size: contain;
+}
+
+/* --- ÍCONES DE BATERIA DESCARREGANDO --- */
+/* O seletor combina o ID do módulo com a classe do 'states' */
+
+#battery.000 { background-image: url("/home/krolik/.config/waybar/battery-000.svg"); }
+#battery.020 { background-image: url("/home/krolik/.config/waybar/battery-020.svg"); }
+#battery.040 { background-image: url("/home/krolik/.config/waybar/battery-040.svg"); }
+#battery.060 { background-image: url("/home/krolk/.config/waybar/battery-060.svg"); }
+#battery.080 { background-image: url("/home/krolik/.config/waybar/battery-080.svg"); }
+/* O estado padrão, quando nenhum outro se aplica ( > 90%), será este */
+#battery.100, #battery { background-image: url("/home/krolik/.config/waybar/battery-100.svg"); }
+
+
+
+/* --- ÍCONES DE BATERIA CARREGANDO --- */
+/* O seletor combina a classe do 'states' E a classe .charging que a Waybar adiciona */
+
+#battery.000.charging, #battery.000.plugged { background-image: url("/home/krolik/.config/waybar/battery-000-charging.svg"); }
+#battery.020.charging, #battery.020.plugged { background-image: url("/home/krolik/.config/waybar/battery-020-charging.svg"); }
+#battery.040.charging, #battery.040.plugged { background-image: url("/home/krolik/.config/waybar/battery-040-charging.svg"); }
+#battery.060.charging, #battery.060.plugged { background-image: url("/home/krolik/.config/waybar/battery-060-charging.svg"); }
+#battery.080.charging, #battery.080.plugged { background-image: url("/home/krolik/.config/waybar/battery-080-charging.svg"); }
+#battery.100.charging, #battery.100.plugged, #battery.charging { background-image: url("/home/krolik/.config/waybar/battery-100-charging.svg"); }
+
+/* Estilo base para o módulo de rede */
+#network {
+    padding-left: 24px;
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-size: 16px;
+}
+
+#network.wifi {
+    background-image: url("/home/krolik/.config/waybar/network-connected.svg");
+}
+
+#network.ethernet {
+    background-image: url("/home/krolik/.config/waybar/network-connected.svg");
+}
+
+#network.disconnected {
+    background-image: url("/home/krolik/.config/waybar/network-disconnected.svg");
+}
+
+
+/* Estilo para o workspace ATIVO (pressionado) */
+#workspaces button.active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #dfdfdf;
+    border-right-color: #dfdfdf;
+}
+
+/* Estilo para a bandeja do sistema (rebaixada) */
+#tray {
+    background-color: #c0c0c0;
+    padding: 0 4px;
+    margin: 2px;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #dfdfdf;
+    border-right-color: #dfdfdf;
+}
+
+/* --- Efeito de Botão Pressionado (Win95) --- */
+/* Aplica-se quando o botão do mouse está pressionado sobre o módulo */
+
+#workspaces button:active,
+#custom-start:active,
+#custom-user:active,
+#custom-power:active,
+#custom-prev:active,
+#custom-playpause:active,
+#custom-next:active {
+    /* Inverte a borda para dar o efeito de "afundado" */
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #dfdfdf;
+    border-right-color: #dfdfdf;
+
+    /* Opcional, mas recomendado: Desloca o texto 1px para baixo e para a direita para aumentar a ilusão */
+    padding: 1px 5px 0 7px;
+}

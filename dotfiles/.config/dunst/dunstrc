@@ -1,0 +1,64 @@
+# Configuração do Dunst por Gemini, estilo Windows XP Balloon Tip
+
+[global]
+    ### Aparência ###
+    # A fonte. Tahoma é a clássica do XP. Se não tiver, "Arial" ou "Noto Sans" funcionam bem.
+    font = Tahoma 10
+    
+    # Permite usar tags HTML no formato, como <b> para negrito. Essencial.
+    markup = full
+    
+    # O formato da notificação: %s é o sumário (título), %b é o corpo.
+    # Colocamos o título em negrito, como no XP.
+    format = "<b>%s</b>\n%b"
+    
+    # Alinhamentos
+    alignment = left
+    vertical_alignment = center
+    
+    # Mostrar indicador de quantas notificações estão agrupadas
+    show_age_threshold = 60
+    
+    # Ícones
+    icon_position = left
+    max_icon_size = 32
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+    ### Geometria ###
+    # Posição da notificação. Ex: 300 de largura, offset de 10px da direita e 10px de baixo.
+    # Formato: {width}x{height}[+/-]{x}[+/-]{y}
+    geometry = "350x10-30+30"
+
+    # Se a janela deve encolher para caber no texto. Sim, como no XP.
+    shrink = yes
+    
+    ### Diversos ###
+    # Não remova a notificação ao passar o mouse por cima
+    ignore_newline = no
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    
+[frame]
+    # A "borda" da notificação
+    width = 1
+    color = "#000000"
+
+[urgency_low]
+    # O clássico balão amarelo
+    background = "#FFFFE1"
+    foreground = "#000000"
+    timeout = 5
+    
+[urgency_normal]
+    # Vamos manter o mesmo estilo para a urgência normal
+    background = "#FFFFE1"
+    foreground = "#000000"
+    timeout = 10
+
+[urgency_critical]
+    # Para notificações críticas, vamos usar um estilo de "erro" do Windows
+    background = "#FFC0C0" # Um rosa/vermelho claro
+    foreground = "#000000"
+    frame_color = "#A00000" # Borda vermelha escura
+    timeout = 0 # Não some sozinha

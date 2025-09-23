@@ -1,0 +1,61 @@
+/* --- Estilo Chicago95 para Wofi (Versão Menu Iniciar) --- */
+
+/* Janela Principal */
+window {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-top: none; /* MUDANÇA: Remove a borda de cima para "grudar" na Waybar */
+    border-left-color: #ffffff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+}
+
+/* Caixa de Texto (Input) */
+#input {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 5px; /* MUDANÇA: Margem reduzida e uniforme */
+    padding: 3px 5px; /* MUDANÇA: Padding vertical mínimo */
+
+    /* Borda 3D invertida (para dentro) */
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #ffffff;
+    border-right-color: #ffffff;
+
+    font-family: "Microsoft Sans Serif";
+    font-size: 9pt; /* MUDANÇA: Fonte um pouco menor para caber */
+}
+
+/* Área de rolagem dos resultados */
+#scroll {
+    margin: 0px 5px 5px 5px;
+}
+
+/* Estilo de cada item na lista */
+#entry {
+    padding: 5px;
+    border-radius: 0;
+    orientation: horizontal;
+}
+
+/* Ícone dentro da lista */
+#entry image {
+    margin-right: 10px;
+}
+
+/* Item selecionado na lista */
+#entry:selected {
+    background-color: #000080;
+}
+
+/* Texto do item selecionado */
+#text:selected {
+    color: #ffffff;
+}
+
+/* Texto de um item normal */
+#text {
+    color: #000000;
+}

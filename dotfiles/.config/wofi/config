@@ -1,0 +1,19 @@
+# --- Configuração do Wofi - Estilo Menu Iniciar ---
+
+mode=drun
+
+# MUDANÇA: Posição e Tamanho
+width=350
+height=300
+x_offset=0                # Colado na esquerda
+y_offset=24               # Colado ABAIXO da Waybar de 24px
+
+# Configurações de Estilo
+prompt= Executar...
+style=style.css
+allow_images=true
+image_size=22
+
+# Comportamento
+layer=overlay
+show_actions=false

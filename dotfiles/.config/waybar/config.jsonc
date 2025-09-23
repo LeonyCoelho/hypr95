@@ -1,0 +1,141 @@
+{
+    "layer": "top",
+    "position": "top",      // MUDANÇA: Posição para o topo
+    "height": 24,           // MUDANÇA: Altura mais compacta
+    "spacing": 2,           // MUDANÇA: Espaçamento reduzido
+
+    "modules-left": [
+        "custom/start",
+        "custom/search",
+        "hyprland/workspaces",
+        "hyprland/window",
+    ],
+    "modules-center": [],
+    "modules-right": [
+		"network",
+    "bluetooth",
+		"pulseaudio",
+    "keyboard-state",
+		"cpu",
+		"memory",
+		"battery",
+		"tray",
+		"clock"
+	],
+
+    // --- Configuração dos Módulos ---
+    "hyprland/workspaces": {
+        "format": "{name}",  // MUDANÇA: Mostra o número/nome do workspace
+        "persistent_workspaces": {
+            "*": 5
+        }
+    },
+    "hyprland/window": {
+        "format": "         {}"
+    },
+
+
+
+    "custom/start": {
+        "format": "        RUN",    // MUDANÇA: Sem ícone
+        "tooltip": false,
+        "on-click": "rofi -show drun -theme ~/.config/rofi/chicago95.rasi"
+    },
+      "custom/search": {
+        "format": "        FILES",    // MUDANÇA: Sem ícone
+        "tooltip": false,
+        "on-click": "rofi -show filebrowser -show-icons -theme ~/.config/rofi/chicago95.rasi"
+    },
+
+    "cpu": {
+        "format": "        {usage}%", // MUDANÇA: Sem ícone
+        "tooltip": true
+    },
+    "memory": {
+        "format": "        {used:0.1f}G", // MUDANÇA: Sem ícone
+        "tooltip": true
+    },
+    "tray": {
+        "spacing": 5
+    },
+
+"keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name}",
+        "format_map": {
+          "English (US, intl.)": "US 🇺🇸", // <-- MUDANÇA AQUI
+          "Portuguese (Brazil)": "BR 🇧🇷"
+        }
+    },
+
+    // Adicione estes novos blocos de configuração
+
+"battery": {
+    "format": "{capacity}%",
+    "format-charging": "{capacity}% CHARGING",
+    "format-plugged": "{capacity}% PLUGGED",
+    "format-alt": "{time}",
+    "states": {
+        "100": 100, // Classe "100" quando for exatamente 100
+        "080": 90,  // Classe "080" se a bateria for <= 90%
+        "060": 70,  // Classe "060" se a bateria for <= 70%
+        "040": 50,  // etc...
+        "020": 30,
+        "000": 10
+    }
+},
+    
+
+"network": {
+    // Tenta detectar a interface principal. Se não funcionar,
+    // descomente a linha abaixo e coloque o nome da sua interface
+    // (descubra com o comando 'ip a' no terminal, ex: wlan0 ou enp3s0)
+    // "interface": "wlp*",
+    "format-wifi": "{ifname}: {ipaddr}", // Mostra o nome da rede e a força do sinal
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr}", // Mostra o nome da interface e o IP
+    "format-disconnected": "Disconnected", // Texto para quando estiver sem rede
+    "tooltip": true,
+    "tooltip-format": "{essid} - {signalStrength}%", // Mostra detalhes ao passar o mouse
+    "on-click": "rofi-wifi-menu" // Abre o editor de conexões de rede ao clicar
+},
+
+"bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections} connected",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"on-click": "rofi-bluetooth -theme ~/.config/rofi/chicago95-alt.rasi"
+},
+  
+"temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input", // PODE VARIAR! Veja a dica abaixo.
+    "format": "TEMP {temperatureC}°C",
+    "format-critical": "TEMP {temperatureC}°C 🔥",
+    "critical-threshold": 85
+},
+
+"pulseaudio": {
+    "format": "  {volume}%", // O que mostrar por padrão (volume alto)
+    "format-muted": "   MUTED", // O que mostrar quando mudo
+    "format-alt": { // Formatos alternativos baseados no volume
+        "66": "{volume}%", // Acima de 66% (usa a classe 'high')
+        "33": "{volume}%", // Acima de 33% (usa a classe 'medium')
+        "0": "{volume}%"   // Acima de 0% (usa a classe 'low')
+    },
+    // A mágica acontece aqui!
+    "format-alt-click": "pavucontrol",
+    "on-click": "pavucontrol",
+    // Associa classes CSS aos estados.
+    // O nome da classe pode ser o que você quiser.
+ "states": {
+        "high": 100,
+        "medium": 60,
+        "low": 30,
+        "muted": 0,
+    }
+},
+}
