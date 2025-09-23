@@ -1,0 +1,17 @@
+/**
+ * Arquivo de Configuração Global do Rofi
+ */
+
+configuration {
+    /* Desativa o loop da lista. Ao chegar no final, a rolagem para. */
+    cycle: false;
+
+    /* Mapeia a roda do mouse para pular páginas, em vez de linhas. */
+    /* Mouse4 = Roda para cima */
+    /* Mouse5 = Roda para baixo */
+    mouse-bindings: "Mouse4: kb-page-up; Mouse5: kb-page-down;";
+    
+    /* Outras configurações úteis que você pode querer */
+    modi: "drun,run,filebrowser";
+    show-icons: true;
+}

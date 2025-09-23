@@ -1,0 +1,94 @@
+/**
+ * Tema Rofi: Chicago95 (Final, Corrigido para Rofi 2.0.0+)
+ * USA O FORMATO RGB(R,G,B) PARA CORES
+ */
+
+configuration {
+    modi:               "drun,run";
+    show-icons:         true;
+    icon-theme:         "Chicago95";
+    font:               "Microsoft Sans Serif 10";
+    location:           3;
+    xoffset:            20;
+    yoffset:            20;
+    /* --- CONFIGURAÇÕES DE ROLAGEM ADICIONADAS AQUI --- */
+    /* Desativa o loop da lista. */
+    cycle:              false;
+    /* Mapeia a roda do mouse para pular páginas. */
+    mouse-bindings:     "Mouse4: kb-page-up; Mouse5: kb-page-down;";
+    modal:              false;
+}
+
+* {
+    /* Cores no formato RGB */
+    bg:           rgb(192, 192, 192);
+    win-bg:       rgb(255, 255, 255);
+    fg:           rgb(0, 0, 0);      
+    sel-bg:       rgb(0, 0, 128);    
+    sel-fg:       rgb(255, 255, 255);
+    luz:          rgb(223, 223, 223);
+    sombra:       rgb(128, 128, 128);
+
+    background-color:   transparent;
+    text-color:         @fg;
+}
+
+window {
+    background-color: @bg;
+    border:           2px;
+    border-color:     @luz;
+    padding:          8px;
+    width:            450px;
+}
+
+mainbox {
+    spacing:          8px;
+}
+
+listview {
+    border:           2px;
+    border-color:     @sombra;
+    background-color: @win-bg;
+    padding:          4px;
+    lines:            18;
+    scrollbar:        false;
+}
+
+inputbar {
+    border:           2px;
+    border-color:     @sombra;
+    background-color: @win-bg;
+    padding:          4px;
+    children:         [ prompt, entry ];
+}
+
+/* --- Elementos internos --- */
+element { 
+    padding: 4px 8px; 
+    border: 0; 
+}
+
+element-text { 
+    background-color: inherit; 
+    text-color: inherit; 
+    vertical-align: 0.5; 
+}
+
+element.selected.normal { 
+    background-color: @sel-bg; 
+    text-color: @sel-fg; 
+}
+
+entry { 
+    background-color: inherit; 
+    text-color: inherit; 
+    placeholder: "Type to Search"; 
+    placeholder-color: @sombra; 
+}
+
+prompt { 
+    enabled: true; 
+    padding: 0 8px 0 4px; 
+    background-color: inherit; 
+    text-color: inherit; 
+}
